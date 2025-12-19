@@ -1,0 +1,183 @@
+/* ================= SECTION ================= */
+
+.statsui-section {
+  min-height: 60vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 70px 44px;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+  transform: translateY(-240px);
+}
+
+/* ================= GRID ================= */
+
+.statsui-grid {
+  width: 100%;
+  max-width: 1280px;              /* ⬅ slightly reduced */
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  gap: 32px;                      /* ⬅ tighter spacing */
+}
+
+/* ================= BASE CARD ================= */
+
+.statsui-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+
+  aspect-ratio: 1 / 1;            /* ⬅ square look */
+  max-height: 360px;
+
+  box-shadow: 0 32px 90px rgb(255, 247, 247);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.statsui-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 50px 140px rgba(0, 0, 0, 0.18);
+}
+
+/* ================= LEFT ROI ================= */
+
+.statsui-roi {
+  background: #facc15;
+  padding: 36px;
+}
+
+.statsui-roi::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  bottom: -70px;
+  width: 220px;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+}
+
+.statsui-roi-icon {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  width: 56px;
+  height: 56px;
+  background: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform:translate(-15px, -15px);
+}
+
+/* ================= TYPOGRAPHY ================= */
+
+.statsui-roi-content {
+  transform: translate(30px, 90px); /* X = right, Y = down */
+}
+
+.statsui-label {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.statsui-value {
+  font-size: 56px;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+.statsui-sub {
+  font-size: 16px;
+  opacity: 0.75;
+}
+
+/* ================= CENTER TRUST ================= */
+
+.statsui-trust {
+  background: radial-gradient(
+    circle at top right,
+    #2a3445,
+    #0b1324
+  );
+  padding: 40px;
+  color: #ffffff;
+}
+
+.statsui-big {
+  font-size: 84px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.statsui-big span {
+  color: #facc15;
+}
+
+.statsui-desc {
+  max-width: 360px;
+  margin-top: 14px;
+  line-height: 1.55;
+  color: #cbd5e1;
+  font-size: 15px;
+}
+
+.statsui-avatars {
+  display: flex;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.statsui-avatars img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid #0b1324;
+  margin-left: -14px;
+}
+
+.statsui-avatars img:first-child {
+  margin-left: 0;
+}
+
+.statsui-plus {
+  margin-left: 16px;
+  font-size: 44px;
+  font-weight: 700;
+}
+
+/* ================= RIGHT VOLUME ================= */
+
+.statsui-volume {
+  background: #ffffff;
+  padding: 32px;
+}
+
+.statsui-volume-head span {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.statsui-volume-head h2 {
+  font-size: 42px;
+  margin: 8px 0;
+}
+
+.statsui-badge {
+  display: inline-block;
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.statsui-chart {
+  margin-top: 22px;
+  height: 150px;                /* ⬅ shorter chart */
+}

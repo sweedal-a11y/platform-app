@@ -1,0 +1,19 @@
+.search-discovery-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+/* ensures dropdown attaches right below search */
+.search-discovery-container .ai-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  width: 100%;
+  left: 0;
+  z-index: 10;
+}

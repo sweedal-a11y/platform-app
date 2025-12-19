@@ -1,0 +1,647 @@
+:root {
+  --bg: #ffffff;
+  --muted: #62748e;
+  --text: #0f172b;
+  --accent: #1c79ff;
+  --chip-border: #e2e8f0;
+}
+
+/* ---------- Container / Root ---------- */
+.company-list-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  gap: 48px;
+  width: 1280px;
+  height: 974px;
+  margin: 0 auto 80px;
+  font-family: "DM Sans", Arial, sans-serif;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+/* ---------- Header / Search Row (Frame 2147207787) ---------- */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 1280px;
+  height: 126px;
+  box-sizing: border-box;
+}
+
+/* Search row container */
+
+/* ---------- Dropdown ---------- */
+/* ---------- Dropdown (clean, single definition) ---------- */
+
+/* parent must be positioned so popup can be absolute to it */
+.category-dropdown {
+  position: relative;           /* <-- important for absolute popup */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 256.78px;
+  height: 58px;
+  background: rgba(193, 193, 193, 0.24);
+  border-radius: 16px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+/* visible area of the dropdown inside the row */
+.dropdown-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+/* label and arrow */
+.dropdown-text { font-family: 'DM Sans'; font-weight:500; font-size:20px; color:#121212; }
+.dropdown-arrow {
+  width: 18px;
+  height: 18px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/32/32195.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  transform: rotate(180deg);
+}
+
+/* popup list (initially hidden) */
+.dropdown-list {
+  position: absolute;          /* floats above content */
+  top: calc(100% + 10px);      /* 10px gap under the dropdown button */
+  right: 0;                    /* align the popup's right edge with container */
+  width: 256.78px;
+  max-height: 320px;
+  overflow-y: auto;
+  display: none;               /* toggled via class or JS */
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12.8889px 0;
+  gap: 6.44px;
+  background: #FFFFFF;
+  border: 1.6px solid rgba(193,193,193,0.25);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(20,20,20,0.06);
+  z-index: 50;
+}
+
+/* when parent has .open, show popup */
+.category-dropdown.open .dropdown-list {
+  display: flex;
+}
+
+/* each item */
+.dropdown-item{
+  width:100%;
+  padding: 12.8889px 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.dropdown-item:hover{ background:#F8FAFC; }
+
+/* item label */
+.dropdown-item .label{
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  color:#121212;
+}
+
+/* ---------- Single Card ---------- */
+.company-card {
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: flex-start;
+
+  width: 1264px;
+  height: 340px;
+  background: #FFFFFF;
+  border: 1px solid rgba(193,193,193,0.5);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ---------- Left Image Holder (ImageWithFallback) ---------- */
+.card-image-wrap {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  gap: 10px;
+  width: 400px;
+  height: 340px;
+  background: #FFFFFF;
+  /* NOTE: border-radius left only */
+  border-radius: 12px 0 0 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* If you're still using background-image as a fallback: keep the property but prefer <img> */
+.card-image-wrap .bg-fallback {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Real <img> behavior exactly matching the 400x340 spec */
+.card-image-wrap img {
+  width: 400px;
+  height: 340px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: inherit;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Badge (exact spec size/position) */
+.category-badge {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 4px;
+  position: absolute;
+  width: 91px;
+  height: 30px;
+  left: 22.2px;
+  top: 22.2px;
+  background: #FFC300;
+  box-shadow: 0px 18.5px 23.125px -4.625px rgba(0,0,0,0.1), 0px 7.4px 9.25px -5.55px rgba(0,0,0,0.1);
+  border-radius: 7.4px;
+  font-family: 'DM Sans';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #121212;
+  z-index: 3;
+}
+
+/* ---------- Right Content Area (Frame 2147207785) ---------- */
+.card-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 40px 0 40px;
+  gap: -30px;
+  width: 864px;
+  height: 340px;
+  position: relative;
+}
+
+/* title row + verified */
+.title-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 784px;
+  height: 36px;
+  box-sizing: border-box;
+}
+
+.company-title {
+  font-family: 'DM Sans';
+  font-weight: 600;
+  font-size: 24px; /* frame value */
+  line-height: 36px;
+  color: #0F172B;
+  margin: 0;
+}
+
+/* Verified pill */
+.verified-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  gap: 10px;
+  width: 90px;
+  height: 28px;
+  background: #1C79FF;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Best Choice (top-right) */
+.best-choice {
+  position: absolute;
+  top: 0px;
+  right: -2px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+  min-width: 120px;
+  height: 36px;
+
+  background: #395698;
+  border-radius: 0 14px 14px 0;
+
+  font-family: 'Arial', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #FFFFFF;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.best-choice::before {
+  content: "★";
+  color: #FFC300;
+  font-size: 16px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+/* description & tags */
+.company-desc {
+  width: 689px;
+  height: 24px;
+  font-family: 'DM Sans';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #45556C;
+  margin: 14px 0 18px 0;
+  box-sizing: border-box;
+}
+
+.tag-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  gap: 4px;
+  background: #FFFFFF;
+  border: 0.8px solid #E2E8F0;
+  border-radius: 999999px;
+  font-family: 'DM Sans';
+  font-size: 12px;
+  color: #314158;
+  box-sizing: border-box;
+}
+
+/* ---------- Bottom stats area (card-bottom) ---------- */
+/* ---------- Bottom stats area (card-bottom) ---------- */
+/* Replaces previous .card-bottom */
+.card-bottom {
+  box-sizing: border-box;
+  margin-top: 10px;
+  width: calc(100% - 40px);   /* keeps left padding consistent with card-content */
+  margin-left: 40px;
+  height: 84px;               /* design height */
+  background: rgba(248, 250, 252, 0.8);
+  border-top: 0.8px solid rgba(226, 232, 240, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  margin-bottom: 24px;
+  border-radius: 0 0 12px 12px;
+  gap: 24px;
+}
+.cards-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* <-- Add this to increase spacing between cards */
+}
+
+/* Keep a fixed inner content width (as spec shows 784px content region) */
+.card-bottom .inner {
+  width: 784px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+/* stats blocks container on the left */
+.stats {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin: 0;
+  flex: 0 0 auto; /* don't stretch */
+}
+
+/* each stat column (Funding / Investors / Min Entry) */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  width: 228px;
+  box-sizing: border-box;
+  position: relative; /* keeps any inner absolute elements stable */
+}
+
+/* stat icon wrapper: host an external SVG <img> or inline <svg> */
+.stat-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  flex: 0 0 32px;
+  display: inline-grid;
+  place-items: center;
+  overflow: visible;
+  margin-bottom: 6px;
+}
+
+/* if you use an <img> inside .stat-icon, make sure it fills correctly */
+.stat-icon img {
+  width: 20px;     /* icon graphic size (keeps the icon visually centered) */
+  height: 20px;
+  display: block;
+  object-fit: contain;
+}
+
+/* labels / values */
+.stat-label {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  font-family: 'DM Sans', Arial, sans-serif;
+}
+.stat-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  font-family: 'DM Sans', Arial, sans-serif;
+}
+
+/* actions / buttons area on the right (keeps previous .card-actions) */
+.card-actions {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-left:auto;
+  flex: 0 0 auto;
+}
+
+
+.stat-icon.funding { background: #EFF6FF; }
+.stat-icon.investors { background: #FFF0F8; }
+.stat-icon.entry { background: #ECFFF2; }
+
+.stat-label { font-size: 14px; color: var(--muted); margin: 0 0 6px 0; }
+.stat-value { font-size: 16px; font-weight: 600; color: var(--text); margin: 0; }
+
+/* actions / buttons */
+.card-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-left: auto;
+  margin-top: 100px;
+  width: 266px;
+  height: 36px;
+    justify-content: flex-start; /* left align */
+  /* or */
+  justify-content: center;     /* center align */
+  /* or */
+  justify-content: flex-end;   /* right align (default) */
+  position: absolute;
+  right: -15px;
+  bottom: -45px;
+}
+
+/* Base button */
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  height: 36px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Secondary button — "View Details" */
+.btn.secondary {
+  width: 126.6px;
+  background: #FFFFFF;
+  border: 0.8px solid #C1C1C1;
+  color: #121212;
+}
+
+.btn.secondary:hover {
+  background: #F8FAFC;
+  border-color: #A0A0A0;
+}
+
+/* Primary button — "Contact" */
+.btn.primary {
+  width: 127.24px;
+  background: #152B5A;
+  color: #FFFFFF;
+  border: none;
+}
+
+.btn.primary:hover {
+  background: #0F1D3F;
+}
+
+/* Optional arrow on Contact button */
+.btn.primary::after {
+  content: "→";
+  font-size: 14px;
+  line-height: 1;
+  margin-left: 8px;
+  color: inherit;
+}
+
+
+/* view more line */
+.view-more {
+  width: 78px;
+  text-decoration: underline;
+  color: #435360;
+  font-family: 'DM Sans';
+  font-size: 16px;
+  text-align: right;
+}
+
+/* ---------- Responsive tweak (as provided earlier) ---------- */
+@media (max-width: 1366px) {
+  .company-list-root { width: calc(100% - 48px); }
+  .card-image-wrap { width: 360px; min-width: 360px; }
+  .card-image-wrap img { width: 360px; height: 340px; object-fit: cover; }
+  .card-content { padding-left: 28px; padding-right: 28px; }
+  .company-title { font-size: 28px; }
+}
+/* ============================================================= */
+/* ========== OVERRIDE: Header + Search Row Styles ============== */
+/* ============================================================= */
+
+.company-list-root .header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 1280px;
+  height: auto;
+  box-sizing: border-box;
+  margin-top: 24px;
+}
+
+.company-list-root .header .search-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  max-width: 1280px;
+  height: 58px;
+}
+
+/* ---------- Search Bar ---------- */
+.company-list-root .search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 auto;
+  height: 58px;
+  padding: 0 18px;
+  background: #ffffff;
+  border: 1px solid rgba(193, 193, 193, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+.company-list-root .search-icon {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(193, 193, 193, 0.24);
+  border-radius: 8px;
+}
+
+.company-list-root .search-icon::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/622/622669.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+
+.company-list-root .search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #43536d;
+  background: transparent;
+  padding: 0;
+}
+
+/* ---------- Category Dropdown ---------- */
+.company-list-root .category-dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 256.78px;
+  height: 58px;
+  background: rgba(193, 193, 193, 0.24);
+  border-radius: 16px;
+  box-sizing: border-box;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+.company-list-root .dropdown-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.company-list-root .dropdown-text {
+  font-family: 'DM Sans';
+  font-weight: 500;
+  font-size: 20px;
+  color: #121212;
+}
+
+.company-list-root .dropdown-arrow {
+  width: 18px;
+  height: 18px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/32/32195.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  transform: rotate(180deg);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .company-list-root .header .search-row {
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
+  }
+
+  .company-list-root .category-dropdown {
+    width: 100%;
+  }
+}
+

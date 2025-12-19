@@ -1,0 +1,228 @@
+:root{
+  --accent-blue: #2d6cff;
+  --text-dark: #0f1720;
+  --muted: #5a6a7a;
+  --gold: #ffd86a;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* Outer section */
+.startup-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 70px 32px; /* reduced */
+  box-sizing: border-box;
+  overflow-x: hidden;
+  transform: translateY(-240px);
+}
+
+.startup-inner {
+  width: 100%;
+  max-width: 1200px; /* IMPORTANT */
+  margin: 0 auto;
+}
+
+/* Header */
+.startup-header {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 48px;
+  align-items: start;
+}
+.badge-row { display:flex; align-items:center; gap:12px; margin-bottom:10px;   transform: translateY(-30px);}
+.small-arrow{ font-size:16px; color:#233044; transform:translateY(-2px);}
+.badge-pill{ padding:6px 12px; border-radius:10px; background:linear-gradient(90deg,#bbd6f1 0%,#f7ecc7 100%); color:#152b5a; font-weight:600; font-size:13px;}
+.startup-title{ margin:0; font-family:"URW Global Geometric Arabic", Arial, sans-serif; font-size:50px; line-height:1.05; font-weight:600; color:var(--text-dark);}
+.startup-title .accent{ color: var(--accent-blue);}
+.header-sub-row{ display:flex; flex-direction:column; gap:18px; align-items:flex-start; margin-top:8px;}
+.lead-copy{ margin:0; color: var(--muted); font-size:16px; line-height:1.8; max-width:380px;}
+.outline-btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 18px; border-radius:12px; border:1.8px solid rgba(38,60,105,0.25); background:transparent; color:#263c69; font-weight:600; cursor:pointer;}
+
+/* Portfolio row */
+.portfolio-row {
+  display: grid;
+  grid-template-columns: minmax(420px, 480px) minmax(0, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+
+/* Left yellow card */
+.invest-card{ position:relative; width:100%; min-height:420px; background:var(--gold); border-radius:26px; padding:36px 40px; display:flex; flex-direction:column; gap:18px; overflow:hidden;}
+.invest-card::after{ content:""; position:absolute; width:220px; height:220px; right:-60px; bottom:-60px; background: rgba(255,255,255,0.28); border-radius:50%; pointer-events:none;}
+.invest-top{ display:flex; align-items:center; gap:12px;}
+.avatar-stack{ display:flex; align-items:center; margin-left:-6px;}
+.avatar{ width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid #fff; margin-right:-14px; background:#ddd;}
+.invest-note{ margin-left:8px; font-size:14px; color:#222; font-weight:500;}
+.invest-title{ margin:10px 0 0 0; font-size:28px; font-weight:700; color:#111;}
+.invest-desc{ margin:6px 0 0 0; color:rgba(17,17,17,0.7); font-size:15px; line-height:1.7; max-width:360px;}
+.feature-badges{ display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;}
+.pill{ padding:8px 14px; border-radius:10px; font-size:13px; color:#fff; background:#0f1720; box-shadow:0 6px 14px rgba(8,12,18,0.06);}
+.invest-cta{ margin-top:auto;}
+.contact-btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:18px; border:1.6px solid rgba(15,23,43,0.12); background:transparent; color:#111; font-weight:600; cursor:pointer;}
+
+/* Scrollable cards */
+.cards-wrapper{ display:flex; align-items:center; gap:12px; position:relative;}
+.cards-view {
+  max-width: 712px; /* 3 cards max */
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.cards-col{ display:flex; gap:26px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;}
+.cards-col::-webkit-scrollbar{ display:none;}
+.image-card{ width:220px; height:310px; border-radius:20px; overflow:hidden; position:relative; flex-shrink:0; scroll-snap-align:start; display:flex; flex-direction:column; justify-content:flex-end;}
+.card-image{ position:absolute; top:0; left:0; width:100%; height:100%; background-size:cover; background-position:center; z-index:1;}
+.card-overlay{ position:absolute; inset:0; display:flex; flex-direction:column; justify-content:space-between; padding:14px; z-index:2; background:linear-gradient(180deg, rgba(8,12,20,0.0) 0%, rgba(8,12,20,0.55) 60%, rgba(8,12,20,0.85) 100%); color:#fff;}
+.card-top{ display:flex; justify-content:space-between; align-items:center;}
+.card-tag{ background: var(--accent-blue); padding:6px 10px; border-radius:10px; font-size:12px; font-weight:600; color:#fff;}
+.card-tag.light{ background:#4fc7ff;}
+.card-tag.orange{ background:#ff9b3d;}
+.card-circle{ width:36px; height:36px; border-radius:50%; background: rgba(255,255,255,0.18); display:inline-flex; align-items:center; justify-content:center; color:#fff; font-size:15px; backdrop-filter: blur(2px);}
+.card-bottom{ display:flex; align-items:flex-end;}
+.card-title{ font-size:18px; font-weight:700; color:#fff; text-shadow: 0 8px 18px rgba(0,0,0,0.55); margin:0;}
+
+/* Scroll buttons */
+.scroll-btn{ background:#fff; border:1px solid #ccc; border-radius:50%; width:36px; height:36px; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; z-index:5;}
+
+
+
+/* =====================================================
+   BROWSER ACTIVITY & HOVER FEEDBACK (ADD-ONLY)
+   ===================================================== */
+
+/* Section safety */
+.startup-section,
+.startup-inner {
+  pointer-events: auto;
+}
+
+/* ---------- Buttons & CTAs ---------- */
+.outline-btn,
+.contact-btn,
+.scroll-btn {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.outline-btn:hover,
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(15,23,43,0.18);
+}
+
+.outline-btn:active,
+.contact-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(15,23,43,0.12);
+}
+
+/* ---------- Badge / Pills ---------- */
+.badge-pill,
+.pill {
+  cursor: default;
+  transition: transform 0.25s ease;
+}
+
+.pill:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- Invest Card ---------- */
+.invest-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.invest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(0,0,0,0.18);
+}
+
+/* ---------- Avatars ---------- */
+.avatar {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.6);
+}
+
+/* ---------- Image Cards ---------- */
+.image-card {
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+}
+
+/* Overlay animation */
+.image-card:hover .card-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(8,12,20,0.1) 0%,
+    rgba(8,12,20,0.65) 60%,
+    rgba(8,12,20,0.95) 100%
+  );
+}
+
+/* ---------- Scroll Buttons ---------- */
+.scroll-btn:hover {
+  background: #f8fafc;
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+.scroll-btn:active {
+  transform: scale(1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* ---------- Cards Scroll Area ---------- */
+.cards-col {
+  cursor: grab;
+}
+
+.cards-col:active {
+  cursor: grabbing;
+}
+
+/* ---------- Titles (subtle affordance) ---------- */
+.startup-title,
+.invest-title {
+  transition: transform 0.25s ease;
+}
+
+.startup-title:hover,
+.invest-title:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- Accessibility ---------- */
+.outline-btn:focus-visible,
+.contact-btn:focus-visible,
+.scroll-btn:focus-visible,
+.image-card:focus-visible {
+  outline: 2px solid rgba(45,108,255,0.5);
+  outline-offset: 3px;
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* Responsive */
+@media (max-width:1100px){ .startup-title{ font-size:48px;} .portfolio-row{ grid-template-columns:460px 1fr; gap:28px;} .image-card{ width:230px; height:300px; } .invest-card{ min-height:380px; padding:34px;} }
+@media (max-width:800px){ .startup-header{ grid-template-columns:1fr; } .header-sub-row{ order:2; } .portfolio-row{ grid-template-columns:1fr; } .cards-view{ width:100%; } .image-card{ width:100%; height:260px; border-radius:14px; } .invest-card{ width:100%; min-height:360px; border-radius:18px; } .startup-inner{ padding:0 12px; } }

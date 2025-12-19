@@ -1,0 +1,204 @@
+/* CategorySelector.css - page + stepper + footer + bubble */
+
+:root{
+  --muted:#6B7280;
+  --panel-bg: #FFFFFF;
+  --violet-glow: rgba(139,92,246,0.12);
+}
+
+/* ================= FRAME ================= */
+.cs-frame{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 44px 36px 90px;
+  box-sizing: border-box;
+  position: relative;
+  font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(90deg, rgba(255,249,241,0.02), rgba(245,251,255,0.02));
+  transform: translate(-80px, -240px);
+  isolation: isolate; /* ✅ hover stability */
+}
+
+/* ================= STEPPER ================= */
+.cs-stepper{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom: 8px;
+  margin-left: -120px;
+}
+
+.step {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#6b7280;
+  font-size:14px;
+  cursor: pointer; /* ✅ clickable */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.step:hover {
+  color:#121212;
+  transform: translateY(-1px);
+}
+
+.circle {
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:#ECEFF3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#6b7280;
+  font-weight:600;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.step:hover .circle {
+  background:#e5e7eb;
+  color:#111;
+}
+
+.done-check {
+  background: rgba(16,185,129,0.12);
+  color:#10b981;
+}
+
+.line {
+  width:160px;
+  height:6px;
+  background: rgba(193,193,193,0.24);
+  border-radius:4px;
+}
+
+.line.filled {
+  background: #121212;
+}
+
+/* ================= HEADING ================= */
+.cs-heading{
+  font-size:32px;
+  color:#43536D;
+  margin: 18px 0 20px;
+  font-weight:700;
+  margin-left: -120px;
+}
+
+/* ================= FOOTER ================= */
+.cs-footer-wrap{
+  margin-top: 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  max-width:1280px;
+  width:100%;
+  margin-left: -120px;
+}
+
+.cs-selected-count {
+  color:var(--muted);
+  font-size:14px;
+}
+
+.cs-actions{
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+
+/* ================= CLEAR BUTTON ================= */
+.cs-clear {
+  background:transparent;
+  border:none;
+  color:#121212;
+  text-decoration:underline;
+  cursor:pointer; /* ✅ FIX */
+  font-size:16px;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.cs-clear:hover {
+  color:#152B5A;
+  opacity:0.85;
+}
+
+/* ================= CONTINUE BUTTON ================= */
+.cs-continue {
+  background:#152B5A;
+  color:#fff;
+  border:none;
+  padding:12px 18px;
+  border-radius:12px;
+  cursor:pointer; /* ✅ FIX */
+  min-width:110px;
+  height:44px;
+  font-weight:600;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.cs-continue:hover {
+  background:#1b3773;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(21,43,90,0.35);
+}
+
+.cs-continue:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ================= CONTINUE BUBBLE (DECORATIVE) ================= */
+.cs-continue-bubble{
+  position:absolute;
+  left: 34%;
+  bottom: 110px;
+  transform: translateX(-40%);
+  pointer-events:none; /* ✅ decorative only */
+  z-index: 90;
+  display:flex;
+  align-items:center;
+  gap:40px;
+}
+
+.bubble-inner{
+  width: 200px;
+  background: linear-gradient(180deg,#FDD56A,#FDC700);
+  border-radius:12px;
+  padding:18px 22px;
+  color:#1b1336;
+  box-shadow: 0 18px 40px rgba(30,30,60,0.08);
+  font-weight:600;
+  text-align:left;
+  line-height:1.2;
+}
+
+.bubble-line1{
+  font-size:14px;
+}
+
+.bubble-line2{
+  font-size:13px;
+  margin-top:6px;
+  font-weight:500;
+  color:#1b1336;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px){
+  .cs-frame{ padding: 34px 24px 80px; }
+  .cs-continue-bubble{
+    left:50%;
+    bottom:70px;
+    transform:translateX(-50%);
+  }
+  .cs-heading{ font-size:28px; }
+}
+
+@media (max-width: 680px){
+  .cs-frame{ padding: 24px; }
+  .cs-continue-bubble { display:none; }
+  .cs-heading{ font-size:20px; }
+}

@@ -1,0 +1,418 @@
+@font-face {
+  font-family: "URWGeometric";
+  src: url("/fonts/URWGeometricRegular.otf") format("opentype");
+  font-weight: 400;
+}
+
+/* ROOT */
+.em-footer {
+  width: 100%;
+  max-width: 1350px;
+
+  /* ⬇️ move footer UP correctly (no fake space) */
+  margin: -150px auto 0;
+
+  font-family: "URWGeometric", sans-serif;
+  color: #1a1a1a;
+}
+
+/* GRID */
+.em-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* BRAND */
+.em-footer-logo {
+  width: 110px;
+  margin-bottom: 18px;
+}
+
+.em-footer-desc {
+  max-width: 230px;
+  opacity: 0.7;
+}
+
+/* SOCIALS */
+.em-footer-socials {
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.em-footer-social {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.em-footer-social:hover {
+  background: #e5e7eb;
+}
+
+/* COLUMNS */
+.em-footer-col h4 {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.em-footer-col p {
+  margin: 8px 0;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* DIVIDER */
+.em-footer-divider {
+  margin: 50px 0;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* NEWSLETTER */
+.em-footer-newsletter {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.em-footer-newsletter h3 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.em-footer-newsletter p {
+  font-size: 15px;
+  opacity: 0.65;
+  margin-top: 6px;
+}
+
+.em-footer-form {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.em-footer-form input {
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 1px solid #e1e5ee;
+  outline: none;
+  font-family: "URWGeometric";
+}
+
+.em-footer-form button {
+  background: #ffcc00;
+  border: none;
+  padding: 0 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  height: 52px;
+}
+
+/* BOTTOM */
+.em-footer-bottom {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.em-footer-links {
+  display: flex;
+  gap: 22px;
+}
+
+.em-footer-links a {
+  text-decoration: none;
+  color: #1a1a1a;
+  opacity: 0.7;
+}
+
+
+/* =====================================================
+   FOOTER — GLOBAL BROWSER ACTIVITY & HOVER (ADD-ONLY)
+   ===================================================== */
+
+/* ---------- UNIVERSAL TRANSITION ---------- */
+.em-footer * {
+  transition:
+    transform 0.28s cubic-bezier(.22,.9,.24,1),
+    box-shadow 0.28s ease,
+    background 0.28s ease,
+    color 0.28s ease,
+    opacity 0.28s ease;
+}
+
+/* ---------- CURSOR: EVERYTHING ---------- */
+
+/* Clickable / interactive */
+.em-footer a,
+.em-footer button,
+.em-footer input,
+.em-footer-social,
+.em-footer-col p,
+.em-footer-links a {
+  cursor: pointer;
+}
+
+/* Text-only */
+.em-footer h3,
+.em-footer h4,
+.em-footer p:not(.em-footer-col p) {
+  cursor: default;
+}
+
+/* Input */
+.em-footer-form input {
+  cursor: text;
+}
+
+/* ---------- HOVER FEEDBACK ---------- */
+
+/* Footer columns links */
+.em-footer-col p:hover {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* Social icons */
+.em-footer-social:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+/* Footer links (bottom row) */
+.em-footer-links a {
+  position: relative;
+}
+
+.em-footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.em-footer-links a:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Newsletter input */
+.em-footer-form input:hover {
+  border-color: #c7cddc;
+}
+
+/* .em-footer-form input:focus {
+  border-color: #ffcc00;
+  box-shadow: 0 0 0 3px rgba(255,204,0,0.35);
+} */
+
+/* Newsletter button */
+.em-footer-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(255,204,0,0.45);
+}
+
+.em-footer-form button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+/* Footer logo */
+.em-footer-logo {
+  cursor: pointer;
+}
+
+.em-footer-logo:hover {
+  transform: scale(1.04);
+}
+
+/* Divider subtle glow on hover (alive feel) */
+.em-footer-divider:hover {
+  opacity: 1;
+}
+
+/* Bottom text */
+.em-footer-bottom span,
+.em-footer-bottom p {
+  cursor: default;
+}
+
+/* ---------- DEAD ZONE PREVENTION ---------- */
+.em-footer,
+.em-footer-grid,
+.em-footer-col,
+.em-footer-newsletter,
+.em-footer-bottom {
+  pointer-events: auto;
+}
+
+/* ---------- ACCESSIBILITY ---------- */
+.em-footer a:focus-visible,
+.em-footer button:focus-visible,
+.em-footer input:focus-visible {
+  outline: 2px solid rgba(255,204,0,0.7);
+  outline-offset: 3px;
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .em-footer * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.em-footer-error {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.em-footer-success {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+
+
+/* =====================================================
+   FOOTER — RESPONSIVE LAYOUT (ADD-ONLY)
+   ===================================================== */
+
+/* ---------- Tablet (≤ 1100px) ---------- */
+@media (max-width: 1100px) {
+  .em-footer {
+    padding: 0 24px;
+  }
+
+  .em-footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 32px;
+  }
+
+  .em-footer-col h4 {
+    margin-bottom: 14px;
+  }
+
+  .em-footer-newsletter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .em-footer-form {
+    width: 100%;
+  }
+
+  .em-footer-form input {
+    width: 100%;
+  }
+}
+
+/* ---------- Small Tablet / Large Mobile (≤ 900px) ---------- */
+@media (max-width: 900px) {
+  .em-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .em-footer-desc {
+    max-width: 100%;
+  }
+
+  .em-footer-socials {
+    margin-top: 16px;
+  }
+
+  .em-footer-divider {
+    margin: 36px 0;
+  }
+
+  .em-footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .em-footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+}
+
+/* ---------- Mobile (≤ 600px) ---------- */
+@media (max-width: 600px) {
+  .em-footer {
+    margin: -120px auto 0; /* less aggressive pull-up on mobile */
+    padding: 0 16px;
+  }
+
+  .em-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .em-footer-logo {
+    width: 96px;
+  }
+
+  .em-footer-newsletter h3 {
+    font-size: 18px;
+  }
+
+  .em-footer-newsletter p {
+    font-size: 14px;
+  }
+
+  .em-footer-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .em-footer-form button {
+    width: 100%;
+  }
+
+  .em-footer-bottom {
+    font-size: 13px;
+  }
+}
+
+/* ---------- Extra Small Devices (≤ 420px) ---------- */
+@media (max-width: 420px) {
+  .em-footer {
+    margin: -90px auto 0;
+  }
+
+  .em-footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

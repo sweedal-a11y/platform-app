@@ -1,0 +1,484 @@
+/* --- Global Font Override to match Emireq.com --- */
+:root {
+  --font-main: "URWGeometric", "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html, body, * {
+  font-family: var(--font-main) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Page wrapper & top header ---------- */
+.ci-page {
+  padding: 48px 0 80px;
+  background: linear-gradient(90deg, rgb(235, 236, 237), rgb(247, 247, 249));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px; /* added to curve outer edges */
+  overflow: hidden;    /* ensures inner content doesn’t spill out */
+    transform: translateY(-1700px);
+}
+
+/* top title area */
+.ci-top { width:100%; max-width:1280px; text-align:center; margin-bottom:12px; }
+.ci-chip {
+  display:inline-block;
+  padding:6px 14px;
+  background:#E6EDFF;
+  color:#356BFF;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+}
+.ci-title {
+  margin:18px 0 8px;
+  font-size:40px;
+  line-height:1.05;
+  font-weight:700;
+  color:#0B1724;
+}
+.ci-sub {
+  color:var(--muted);
+  font-size:15px;
+  font-weight:500;
+  margin:0 auto;
+  max-width:760px;
+  line-height:22px;
+}
+
+/* stats row */
+.ci-stats { display:flex; justify-content:center; gap:120px; margin-top:36px; }
+.ci-stat { text-align:center; }
+.ci-stat-value {
+  color:#FFB200;
+  font-weight:800;
+  font-size:32px;
+}
+.ci-stat-label {
+  color:var(--muted);
+  margin-top:6px;
+  font-size:13px;
+  font-weight:700; /* updated */
+}
+
+/* ---------- Board wrapper ---------- */
+.ci-board-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  padding: 28px 20px;
+  background: linear-gradient(90deg, rgba(235,230,250,0.6), rgba(235,230,250,0.6));
+}
+
+.ci-board {
+  width: 92%;
+  max-width: 1180px;
+  background: var(--board-bg);
+  padding: 20px;
+  border-radius: 15px;
+  border: 8px solid rgba(240,236,255,1);
+  box-shadow: 0 12px 40px var(--violet);
+}
+
+/* ---------- Header controls ---------- */
+.ci-board-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:8px 6px;
+  margin-bottom:18px;
+}
+.ci-board-title {
+  font-size:13px;
+  color:#101011;
+  font-weight:700; /* updated */
+}
+
+.ci-controls { display:flex; align-items:center; gap:12px; }
+.ci-ghost {
+  background:#FAFBFD;
+  border:1px solid #F1F5F9;
+  padding:8px;
+  border-radius:10px;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.ci-search {
+  display:inline-flex;
+  align-items:center;
+  background:#FBFBFD;
+  border-radius:10px;
+  padding:8px 10px;
+  border:1px solid #F1F5F9;
+  gap:8px;
+}
+.ci-search input {
+  border:0;
+  outline:0;
+  background:transparent;
+  width:150px;
+  font-size:13px;
+  font-weight:500;
+  color:#6B7280;
+}
+
+/* avatar */
+.ci-avatar { width:36px; height:36px; border-radius:999px; object-fit:cover; }
+
+/* ---------- Top cards ---------- */
+.ci-cards { display:flex; gap:18px; margin:8px 0 20px; justify-content:space-between; }
+
+.ci-card {
+  width: calc((100% - 36px) / 3);
+  background:#fff;
+  border-radius:12px;
+  padding:16px 18px;
+  border:1px solid #F1F3F6;
+  box-shadow: 0 6px 20px rgba(12,20,40,0.04);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:168px;
+}
+
+.ci-card-header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.ci-card-left { display:flex; align-items:center; gap:12px; min-width:0; }
+
+.ci-token { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ci-token-title { font-weight:700; font-size:15px; color:#101828; }
+.ci-token-sub { font-size:12px; font-weight:500; color:var(--muted); }
+
+/* badge */
+.ci-badge { padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px; }
+.ci-badge.positive { background:#E7FFF0; color:#0AA562; }
+.ci-badge.negative { background:#FFECEC; color:#D64545; }
+
+/* body */
+.ci-card-body {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  justify-content:space-between;
+  margin-top:8px;
+}
+.ci-price {
+  font-size:22px;
+  font-weight:800;
+  color:#0B1724;
+}
+.ci-spark { width:140px; height:52px; display:block; object-fit:cover; }
+
+/* footer */
+.ci-card-foot {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid #F1F3F6;
+}
+.ci-date { color:var(--muted); font-size:12px; font-weight:500; }
+.ci-link { color:#3d6dfb; font-size:13px; font-weight:700; text-decoration:none; }
+
+/* ---------- Market Overview table ---------- */
+.ci-table-wrap { margin-top:20px; }
+.ci-table-head { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+.ci-table-title { font-weight:700; font-size:18px; color:#1F2A36; }
+.ci-table-sub { color:var(--muted); font-size:13px; font-weight:500; }
+
+/* table box */
+.ci-table-wrapper {
+  background:#fff;
+  border-radius:14px;
+  padding:12px;
+  border:1px solid #EEF0F6;
+  box-shadow: 0 6px 18px rgba(12,20,40,0.02);
+}
+
+/* table */
+.ci-table { width:100%; border-collapse:separate; border-spacing:0; font-size:14px; font-weight:500; }
+.ci-table thead th {
+  text-align:left;
+  padding:16px 20px;
+  color:#7A8697;
+  font-weight:600; /* more bold like figma */
+  font-size:13px;
+  border-bottom:1px solid #EEF0F6;
+}
+.ci-table tbody tr { height:68px; }
+.ci-table tbody td {
+  padding:14px 20px;
+  vertical-align:middle;
+  border-bottom:1px solid #F3F5F8;
+  color:#283044;
+  font-weight:500;
+}
+
+/* token cell */
+.ci-token-cell { display:flex; align-items:center; gap:12px; }
+.ci-token-pill { width:38px; height:38px; border-radius:10px; display:inline-block; flex-shrink:0; }
+.ci-token-name { font-weight:700; font-size:15px; }
+.ci-token-symbol { font-size:12px; color:var(--muted); font-weight:500; margin-top:4px; }
+
+/* positive / negative */
+.ci-positive { color:#0AA562; font-weight:700; }
+.ci-negative { color:#E04040; font-weight:700; }
+.ci-arrow { margin-right:6px; font-weight:700; }
+
+/* trade button */
+.ci-trade {
+  background:#FFF0D9;
+  color:#B76A00;
+  padding:8px 14px;
+  border-radius:10px;
+  border:0;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* footnote */
+.ci-footnote {
+  margin-top:12px;
+  font-size:12px;
+  font-weight:500;
+  color:var(--muted);
+  text-align:center;
+}
+/* =====================================================
+   BROWSER ACTIVITY / HOVER AFFORDANCE (ADD-ONLY)
+   ===================================================== */
+
+/* Chips & top indicators */
+.ci-chip {
+  cursor: default;
+}
+
+/* Board header controls */
+.ci-ghost,
+.ci-avatar,
+.ci-link,
+.ci-trade {
+  cursor: pointer;
+}
+
+/* Search area feedback */
+.ci-search {
+  cursor: text;
+}
+
+.ci-search:hover {
+  box-shadow: 0 0 0 3px rgba(199,210,254,0.35);
+}
+
+/* Cards browser activity */
+.ci-card {
+  cursor: pointer;
+}
+
+.ci-card:hover {
+  outline: 1px solid rgba(199,210,254,0.6);
+}
+
+/* Table rows browser activity */
+.ci-table tbody tr {
+  cursor: pointer;
+}
+
+.ci-table tbody tr:hover {
+  background: #F7F9FF;
+}
+
+/* Trade button feedback */
+.ci-trade:hover {
+  box-shadow: 0 6px 16px rgba(183,106,0,0.25);
+}
+
+/* Links */
+.ci-link:hover {
+  cursor: pointer;
+}
+
+/* Stats (non-clickable but alive) */
+.ci-stat {
+  cursor: default;
+}
+
+/* Prevent dead zones caused by transforms */
+.ci-page,
+.ci-board,
+.ci-board-wrap {
+  pointer-events: auto;
+}
+
+/* Accessibility: keyboard users */
+.ci-card:focus-visible,
+.ci-trade:focus-visible,
+.ci-link:focus-visible,
+.ci-ghost:focus-visible {
+  outline: 2px solid rgba(53,107,255,0.45);
+  outline-offset: 3px;
+}
+
+/* =====================================================
+   MICRO-INTERACTIONS & ANIMATIONS (ADD-ONLY)
+   ===================================================== */
+
+/* --- Universal easing --- */
+:root {
+  --ease-smooth: cubic-bezier(.22,.9,.24,1);
+}
+
+/* ---------- Cards (Premium Lift) ---------- */
+.ci-card {
+  transition:
+    transform 0.35s var(--ease-smooth),
+    box-shadow 0.35s var(--ease-smooth),
+    border-color 0.25s ease;
+}
+
+.ci-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow:
+    0 18px 40px rgba(12,20,40,0.16),
+    0 6px 16px rgba(12,20,40,0.08);
+}
+
+/* Press feedback */
+.ci-card:active {
+  transform: translateY(-4px) scale(0.995);
+}
+
+/* ---------- Buttons (Soft Spring) ---------- */
+.ci-trade,
+.ci-ghost {
+  transition:
+    transform 0.25s var(--ease-smooth),
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.ci-trade:hover,
+.ci-ghost:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.ci-trade:active,
+.ci-ghost:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* ---------- Search Bar (Glow Focus) ---------- */
+.ci-search {
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.25s ease;
+}
+
+.ci-search:hover {
+  transform: translateY(-1px);
+}
+
+.ci-search:focus-within {
+  box-shadow:
+    0 0 0 3px rgba(199,210,254,0.35),
+    0 10px 26px rgba(53,107,255,0.25);
+}
+
+/* ---------- Table Rows (Slide Highlight) ---------- */
+.ci-table tbody tr {
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ci-table tbody tr:hover {
+  transform: translateX(4px);
+}
+
+/* ---------- Links (Underline Sweep) ---------- */
+.ci-link {
+  position: relative;
+}
+
+.ci-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease-smooth);
+}
+
+.ci-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Stats (Subtle Float) ---------- */
+.ci-stat {
+  transition: transform 0.3s ease;
+}
+
+.ci-stat:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- Avatar (Soft Halo) ---------- */
+.ci-avatar {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.ci-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 4px rgba(53,107,255,0.25);
+}
+
+/* ---------- Page Entrance (Elegant Fade) ---------- */
+@keyframes ciFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(-520px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-250px); /* ⬆️ controls final position */
+  }
+}
+
+
+.ci-page {
+  animation: ciFadeUp 0.7s ease-out both;
+}
+
+/* ---------- Reduced Motion (Accessibility Safe) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .ci-card { width: calc((100% - 36px) / 3); }
+  .ci-spark { width:120px; height:46px; }
+}
+
+@media (max-width: 760px) {
+  .ci-board { padding:16px; border-radius:16px; }
+  .ci-cards { display:block; }
+  .ci-card { width:100%; margin-bottom:14px; }
+  .ci-spark { width:100px; height:40px; }
+  .ci-stats { gap:36px; flex-wrap:wrap; justify-content:center; }
+  .ci-title { font-size:28px; }
+}

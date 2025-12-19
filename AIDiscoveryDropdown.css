@@ -1,0 +1,140 @@
+/* --- Wrapper --- */
+.ai-dropdown-wrapper {
+  position: relative; /* crucial for absolute positioning */
+  display: inline-block; /* or block, depending on layout */
+  width: 60rem; /* make dropdown stretch to parent width */
+}
+
+/* --- Dropdown --- */
+.ai-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  max-width: none;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  z-index: 15;
+  animation: dropdownFade 0.25s ease;
+  overflow: hidden;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- AI CARD --- */
+.ai-card {
+  display: flex;
+  align-items: center;
+  background: #f8f9fd;
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.ai-icon-box {
+  width: 48px;
+  height: 48px;
+  background: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-right: 1rem;
+}
+
+.ai-icon {
+  width: 24px;
+  height: 24px;
+  color: #3b82f6;
+}
+
+.ai-card-content {
+  flex: 1;
+}
+
+.ai-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.ai-card-sub {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-top: 0.25rem;
+}
+
+/* Divider line */
+.ai-divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.5rem 0;
+}
+
+/* --- TRENDING SECTION --- */
+.ai-trending {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-trending-header {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #152b5a;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.ai-trending-icon {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  color: #152b5a;
+}
+
+.ai-trending-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ai-trending-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  color: #111827;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.ai-trending-item:last-child {
+  border-bottom: none;
+}
+
+.ai-trending-growth {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.ai-empty {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  padding: 0.75rem 0;
+}

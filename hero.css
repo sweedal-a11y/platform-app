@@ -1,0 +1,414 @@
+/* ================= ROOT ================= */
+.em-hero {
+  min-height: -100vh;
+  background: #ffffff;
+  padding: 140px 14px 120px;
+  text-align: center;
+  position: relative;
+  overflow: visible; /* 🔥 IMPORTANT */
+  z-index: 1;
+  font-family: "URWGeometric", Inter, sans-serif;
+   transform: translateY(-150px);
+   isolation: isolate; /* ✅ stabilizes hover & cursor */
+}
+
+/* ================= TITLE ================= */
+.em-hero-title {
+  font-size: 64px;
+  font-weight: 600;
+  max-width: 960px;
+  margin: 0 auto 18px;
+  color: #000000;
+}
+
+.em-hero-subtitle {
+  max-width: 760px;
+  margin: 0 auto 42px;
+  font-size: 18px;
+  color: #545454;
+   transform: translateY(10px);
+}
+/* ================= SEARCH ================= */
+.em-hero-search-container {
+  position: relative;          /* 🔥 anchor dropdown */
+  max-width: 1080px;           /* ⬅️ smaller horizontally (was 1200px) */
+  margin: 0 auto;
+  transform: translateY(20px);
+  z-index: 50;
+}
+
+.em-hero-search {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 18px;         /* ⬇️ was 22px */
+  padding: 8px 12px;           /* ⬇️ was 10px 14px */
+  border: 5px solid #f5efc7;   /* ⬇️ was 6px */
+  box-shadow: 0 24px 60px rgba(0,0,0,0.06);
+  cursor: default;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+/* Search hover + focus */
+.em-hero-search:hover {
+  box-shadow: 0 28px 70px rgba(0,0,0,0.08);
+}
+
+.em-hero-search:focus-within {
+  border-color: #f7efbf;
+
+  transform: translateY(-1px);
+}
+
+.em-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;                   /* ⬇️ was 12px */
+  flex: 1;
+}
+
+.em-hero-icon {
+  width: 36px;                 /* ⬇️ was 42px */
+  height: 36px;
+
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    transition: background 0.25s ease;
+}
+.em-hero-search:hover .em-hero-icon {
+  background: #e0e7ff;
+}
+.em-hero-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.em-hero-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;             /* ⬇️ was 16px */
+  color: #111;
+   cursor: text;
+}
+
+.em-hero-select {
+  position: relative;
+  margin-left: -100px;   /* 👈 moves entire select left */
+}
+
+/* Trigger */
+.em-hero-select-trigger {
+  background: #f3f4f6;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+   cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+.em-hero-select-trigger:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+/* Dropdown options */
+.em-hero-options {
+  position: absolute;
+  top: 90%;
+  left: 0;              /* 👈 align dropdown under trigger */
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 999;
+  min-width: 100%;
+   animation: dropdownFade 0.25s ease-out;
+}
+
+
+/* Option item */
+.em-hero-option {
+  padding: 10px 14px;
+  font-size: 14px;
+   cursor: pointer;
+  transition: background 0.2s ease, padding-left 0.2s ease;
+}
+
+.em-hero-option:hover {
+  background: #1f2937;
+   padding-left: 18px;
+}
+
+
+/* Search button */
+.em-hero-search-btn {
+  background: #152b5a;
+  color: #fff;
+  padding: 10px 22px;          /* ⬇️ was 12px 26px */
+  border-radius: 12px;         /* ⬇️ was 14px */
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+    margin-left: 10px; 
+    transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.em-hero-search-btn:hover {
+  background: #1b3773;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(21,43,90,0.35);
+}
+
+.em-hero-search-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(21,43,90,0.25);
+}
+
+/* ================= PILL WRAPPER ================= */
+.em-hero-pill-wrap {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Placement */
+.em-hero-pill-left {
+  left: 80px;
+  top: 230px;
+}
+
+.em-hero-pill-right {
+  right: 80px;
+  top: 260px;
+}
+
+/* ================= FROSTED GLOW SLAB ================= */
+.em-hero-pill-glow {
+  position: absolute;
+
+  /* Wide horizontal slab like Figma */
+  inset: -28px -90px;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  /* Heavy blur for grainy glow feel */
+  filter: blur(42px);
+
+  border-radius: 999px;
+
+
+
+  z-index: 0;
+   pointer-events: none;
+}
+
+/* ================= MAIN PILL ================= */
+.em-hero-pill {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  background: #f5f3f3;
+  padding: 14px 28px;
+  border-radius: 999px;
+
+  font-size: 15px;
+  font-weight: 500;
+  color: #1d1d1c; /* soft warm gray like Figma */
+    pointer-events: none;
+  transition: transform 0.3s ease;
+
+ 
+}
+.em-hero-search:hover ~ .em-hero-pill-wrap .em-hero-pill {
+  transform: translateY(-2px);
+}
+
+.em-hero-pill-left {
+  left: 50px;
+  top: 190px;
+}
+
+.em-hero-pill-right {
+  right:-20px;
+  top: 260px;
+}
+
+
+/* ================= ICON ================= */
+.em-hero-pill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  line-height: 1;
+  color: #16a34a; /* green / yellow accent from Figma */
+}
+
+
+/* ================= SEARCH RESULTS ================= */
+.search-results {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 960px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid rgba(193,193,193,0.45);
+  box-shadow: 0 40px 100px rgba(18,38,72,0.18);
+ z-index: 9999;
+  animation: dropdownFade 0.25s ease-out;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= AI CARD ================= */
+.ai-discovery-card {
+  display: flex;
+  gap: 16px;
+  padding: 2px;
+  background: #f4f5fb;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.ai-icon {
+  width: 44px;                 /* ⬇️ slightly smaller */
+  height: 44px;
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-title {
+  font-size: 1.05rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.ai-description {
+  font-size: 0.9rem;
+  color: #43536d;
+  margin-top: 4px;
+}
+
+/* ================= LIST ================= */
+.divider {
+  height: 1px;
+  background: #e6eaf0;
+  margin: 20px 0;
+}
+
+.search-results-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #52627a;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.trending-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f4f8;
+  font-size: 15px;
+   cursor: pointer;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.trending-item:last-child {
+  border-bottom: none;
+}
+
+.trend-positive {
+  color: #0abf66;
+  font-weight: 600;
+}
+.trending-item:hover {
+  color: #152b5a;
+  padding-left: 6px;
+}
+
+.trend-positive {
+  color: #0abf66;
+  font-weight: 600;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .em-hero-search-container {
+    max-width: 100%;
+  }
+
+  .em-hero-search {
+    padding: 8px 10px;
+  }
+
+  .em-hero-pill {
+    display: none;
+  }
+}
+
+
+/* ================= REMOVE BLUE FOCUS BORDER ================= */
+
+/* Input focus (Chrome / Edge / Safari) */
+.em-hero-input:focus,
+.em-hero-input:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Button focus */
+.em-hero-search-btn:focus,
+.em-hero-search-btn:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Select / trigger focus */
+.em-hero-select-trigger:focus,
+.em-hero-select-trigger:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Container focus (when input is focused inside) */
+.em-hero-search:focus,
+.em-hero-search:focus-within {
+  outline: none !important;
+  box-shadow: 0 28px 70px rgba(0,0,0,0.08); /* keep your design */
+}

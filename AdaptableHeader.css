@@ -1,0 +1,226 @@
+:root {
+  --bg: #ffffff;
+  --text: #121212;
+  --muted: #43536D;
+  --accent: #152B5A;
+  --label-gradient: linear-gradient(90deg, #BBD6F1 0%, #F7ECC7 100%);
+}
+
+/* Main header wrapper */
+.ah-header {
+  display: flex;
+  justify-content: center;
+  background: var(--bg);
+  padding: 24px 0;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+
+/* Inner container (max desktop width 1280px) */
+.ah-inner {
+  width: 1280px;
+  max-width: calc(100% - 48px);
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 160px;
+  box-sizing: border-box;
+}
+
+/* Left section */
+.ah-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  width: 548px;
+  height: 200px;
+  box-sizing: border-box;
+}
+
+/* Badge */
+.ah-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 143px;
+  height: 36px;
+  padding: 8px 12px;
+  background: var(--label-gradient);
+  border-radius: 0 14px;
+}
+
+.ah-label-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Title */
+.ah-title {
+  width: 548px;
+  margin: 0;
+  font-family: 'URW Geometric', 'Inter', 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 76px;
+  color: var(--text);
+  text-align: left;
+  letter-spacing: -0.02em;
+}
+
+/* Subtitle */
+.ah-sub {
+  position: absolute;
+  top: 11px;   /* adjust as needed */
+  left: 700px;  /* adjust as needed */
+  width: 1000px;
+  max-width: 572px;
+  text-align: left;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--muted);
+  transition: all 0.3s ease; /* smooth movement if you animate */
+}
+
+/* CTA button row */
+.ah-cta-row {
+  margin-top: 8px;
+}
+
+/* Button base */
+.ah-btn {
+  /* --- Movement --- */
+  position: absolute;        /* allows you to move via top/left */
+  top: 160px;                /* adjust freely */
+  left: 700px;               /* adjust freely */
+
+  /* --- Fixed size --- */
+  width: 168px;              /* fixed button width */
+  height: 38px;              /* fixed button height */
+
+  /* --- Layout and alignment --- */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;                 /* space between text and icon */
+
+  /* --- Visual style --- */
+  padding: 8px 24px;         /* inner spacing */
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  color: var(--accent);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+  white-space: nowrap;       /* text never wraps */
+  user-select: none;         /* prevents accidental highlighting */
+
+  /* --- Smooth transitions --- */
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+
+
+.ah-btn-outline {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.ah-btn-outline:hover {
+  background: rgba(21, 43, 90, 0.04);
+}
+
+.ah-btn-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+/* Right section */
+.ah-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 572px;
+  height: 200px;
+}
+
+/* Fallback decorative card */
+/* .ah-card {
+  width: 420px;
+  height: 160px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #F4F7FB 0%, #FFFFFF 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+} */
+/* 
+.ah-card-art {
+  width: 380px;
+  height: 120px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #E3F2FF 0%, #FFF6E5 100%);
+} */
+
+/* .ah-card-shadow {
+  position: absolute;
+  right: -30px;
+  top: 30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(19, 43, 90, 0.06);
+  filter: blur(18px);
+} */
+
+/* Image version (if prop image passed) */
+.ah-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .ah-inner { gap: 80px; width: calc(100% - 48px); }
+  .ah-left { width: 50%; }
+  .ah-right { width: 48%; justify-content: flex-end; }
+  .ah-title { font-size: 48px; line-height: 56px; }
+  .ah-sub { font-size: 18px; line-height: 26px; }
+}
+
+@media (max-width: 900px) {
+  .ah-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: auto;
+  }
+  .ah-left, .ah-right {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .ah-title { font-size: 36px; line-height: 44px; text-align: center; }
+  .ah-sub { text-align: center; }
+  .ah-label { margin: 0 auto; }
+  .ah-cta-row { justify-content: center; display: flex; }
+}

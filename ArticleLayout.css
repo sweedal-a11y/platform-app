@@ -1,0 +1,284 @@
+:root{
+  --page-w: 1216px;
+  --card-radius: 24px;
+  --muted: #43536D;
+  --text-dark: #121212;
+  --accent: #FFC300;
+  --panel-border: rgba(193,193,193,0.5);
+  --shadow-strong: 0px 10px 15px -3px rgba(15,23,43,0.2), 0px 4px 6px -4px rgba(15,23,43,0.12);
+}
+
+/* Outer container matching your 1216 width */
+.articles-outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  background: #fff; /* keep neutral; parent page provides overall bg */
+}
+
+.articles-inner {
+  width: var(--page-w);
+  display: flex;
+  gap: 32px;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* LEFT CARD (white panel with drop radius 24) */
+.left-card {
+  width: 696px; /* as spec */
+  background: #ffffff;
+  border-radius: var(--card-radius);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 864.3px; /* to match the huge spec height */
+}
+
+/* HERO IMAGE area (top) */
+.left-hero {
+  width: 100%;
+  height: 521px; /* spec height ~ 521 */
+  position: relative;
+  box-sizing: border-box;
+}
+
+.left-hero-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0; /* image touches card corners per spec */
+  position: relative;
+}
+
+/* overlay gradient (top-left darker) */
+.left-hero-overlay {
+  position: absolute;
+  left: 0; top: 0; right: 0;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(15,23,43,0.6) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+}
+
+/* badge on hero */
+.left-hero-badge {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  width: 142.82px;
+  height: 29.59px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: var(--shadow-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.left-hero-badge-text {
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--text-dark);
+}
+
+/* LEFT BODY (below hero image) */
+.left-body {
+  padding: 40px 40px 40px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  flex: 1 0 auto;
+}
+
+/* Title */
+.left-title {
+  margin: 0;
+  font-family: "URW Geometric", "Inter", Arial, sans-serif;
+  font-weight: 500; /* thinner than 600 */
+  font-size: 30px;  /* slightly smaller to prevent wrapping */
+  line-height: 34px; /* balanced vertical rhythm */
+  color: var(--text-dark);
+  white-space: nowrap; /* ensures single line */
+  overflow: hidden; /* hides overflow if viewport shrinks */
+  text-overflow: ellipsis; /* adds … if it gets clipped */
+}
+
+/* Excerpt paragraph */
+.left-excerpt {
+  margin: 0;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 29px; /* 162% per spec */
+  color: var(--muted);
+  width: 656px; /* matches spec width */
+}
+
+/* footer row with meta and CTA */
+.left-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 656px;
+  border-top: 1px solid var(--panel-border);
+  padding-top: 24px;
+  box-sizing: border-box;
+}
+
+/* Meta row layout */
+.meta-row {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.meta-item { display: flex; gap: 6px; align-items: center; color: var(--muted); font-family: "DM Sans", Arial; font-size: 14px; line-height: 20px; }
+.meta-icon { width: 16px; height: 16px; opacity: 0.9; }
+
+/* CTA button */
+.left-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 24px;
+  height: 44px;
+  background: #121212;
+  color: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-strong);
+  border: none;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* RIGHT COLUMN */
+.right-col {
+  width: 488px; /* as spec */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+/* each right item */
+.right-article {
+  display: flex;
+  gap: 16px;
+  background: #ffffff;
+  border: 0.8px solid rgba(193,193,193,0.5);
+  border-radius: 16px;
+  padding: 20px;
+  align-items: center;
+  box-sizing: border-box;
+  height: 136px; /* spec */
+}
+
+/* thumbnail */
+.right-thumb {
+  width: 96px;
+  height: 96px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  flex: 0 0 96px;
+  background-color: #F1F5F9;
+}
+
+/* right body */
+.right-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: calc(100% - 96px);
+  box-sizing: border-box;
+}
+
+/* small badge on each right item */
+.right-badge-wrap { display:flex; }
+.right-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  height: 24px;
+  background: rgba(255,195,0,0.24);
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #423300;
+  width: auto;
+}
+
+/* title */
+.right-title {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #121212;
+}
+
+/* read more */
+.right-read {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* view all button (bottom of right col) */
+.view-all-wrap {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.view-all-btn {
+  width: 100%;
+  height: 58px;
+  background: rgba(193,193,193,0.15);
+  border: 1px solid rgba(193,193,193,0.24);
+  border-radius: 16px;
+  font-family: "URW Geometric", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #121212;
+  cursor: pointer;
+  padding: 17px 24px;
+  box-sizing: border-box;
+}
+
+/* tiny helper: arrow icons */
+.arrow, .cta-arrow, .view-all-arrow { font-size: 16px; margin-left: 6px; }
+
+/* Ensure pixel-perfect sizing: small tweaks for border-box */
+* { box-sizing: border-box; }
+
+/* Desktop-only precise layout; if you want mobile adjustments, tell me */
+@media (max-width: 1000px) {
+  .articles-inner { flex-direction: column; width: 100%; gap: 20px; }
+  .left-card { width: 100%; height: auto; }
+  .right-col { width: 100%; }
+  .left-title, .left-excerpt, .left-footer { width: 100%; }
+}
+
